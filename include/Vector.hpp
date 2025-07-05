@@ -6,13 +6,13 @@ class Vector {
 public:
     Vector();                                     // construtor padrão
     Vector(int n, const T& value);               // construtor refinado (n cópias de value)
-    Vector(size_t n);                             // **novo**: n cópias de T()
+    Vector(unsigned int n);                             // **novo**: n cópias de T()
     Vector(const Vector& copy);                   // cópia
     Vector(Vector&& outro);                       // movimento
     ~Vector();                                    // destrutor
 
-    size_t get_size() const;
-    size_t get_capacity() const;
+    unsigned int get_size() const;
+    unsigned int get_capacity() const;
     bool is_empty() const;
 
     T& operator [](int index);
@@ -28,8 +28,8 @@ public:
     void clear();
 
 private:
-    size_t size;
-    size_t capacity;
+    unsigned int size;
+    unsigned int capacity;
     T*     elements;
 };
 

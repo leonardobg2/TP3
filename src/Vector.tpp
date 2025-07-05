@@ -14,7 +14,7 @@ Vector<T>::Vector(int n, const T& value)
 }
 
 template <typename T>
-Vector<T>::Vector(size_t n)
+Vector<T>::Vector(unsigned int n)
   : size(n), capacity(n * 2), elements(new T[capacity])
 {
     for (size_t i = 0; i < size; ++i)
@@ -44,12 +44,12 @@ Vector<T>::~Vector() {
 }
 
 template <typename T>
-size_t Vector<T>::get_size() const {
+unsigned int Vector<T>::get_size() const {
     return size;
 }
 
 template <typename T>
-size_t Vector<T>::get_capacity() const {
+unsigned int Vector<T>::get_capacity() const {
     return capacity;
 }
 

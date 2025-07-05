@@ -17,7 +17,7 @@ struct GrupoChave {
 template <typename Chave, typename Valor>
 class MultiMapa {
 public:
-    MultiMapa(size_t numBaldes, size_t (*hashFn)(const Chave&));
+    MultiMapa(unsigned int numBaldes, unsigned int (*hashFn)(const Chave&));
     ~MultiMapa() = default;
 
     // Insere valor mantendo ordem no grupo da chave
@@ -27,7 +27,7 @@ public:
     Vector<Valor> obter(const Chave& chave) const;
 
     // Remove todos valores da chave; retorna quantos foram removidos
-    size_t remover(const Chave& chave);
+    unsigned int remover(const Chave& chave);
 
     unsigned int tamanho() const { return numPares; }
     bool vazio() const { return numPares == 0; }
@@ -35,12 +35,12 @@ public:
 private:
     // Cada balde: Vector de grupos por chave
     Vector< Vector< GrupoChave<Chave,Valor> > > tabela;
-    size_t numBaldes;
-    size_t numPares;
+    unsigned int numBaldes;
+    unsigned int numPares;
     float  limiteCarga;
-    size_t (*hashFn)(const Chave&);
+    unsigned int (*hashFn)(const Chave&);
 
-    size_t indicePara(const Chave& chave) const;
+    unsigned int indicePara(const Chave& chave) const;
     void rehash();
 };
 

@@ -4,15 +4,15 @@
 #include <string>
 
 
-size_t hash_str(const std::string &data) {
-  size_t h(0);
-  for (size_t i=0; i<data.length(); i++)
+unsigned int hash_str(const std::string &data) {
+  unsigned int h(0);
+  for (unsigned int i=0; i<data.length(); i++)
     h = (h << 6) ^ (h >> 26) ^ data[i];
   return h;
 } // https://stackoverflow.com/questions/3413470/what-is-stdmove-and-when-should-it-be-used
 
-size_t hash_int(const int& key){
-    size_t x = static_cast<size_t>(key);
+unsigned int hash_int(const int& key){
+    unsigned int x = static_cast<unsigned int>(key);
     x = ((x >> 16) ^ x) * 0x45d9f3bu;
     x = (x >> 16) ^ x;
     return x;
