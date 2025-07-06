@@ -3,7 +3,7 @@ CXXFLAGS = -Wall -std=c++17 -Iinclude -g
 
 SRC = src/main.cpp
 OBJ = obj/main.o
-EXEC = bin/tp3
+EXEC = bin/tp3.out
 
 all: $(EXEC)
 
@@ -19,7 +19,7 @@ run: $(EXEC)
 	./$(EXEC) $(INPUT)
 
 r: $(EXEC)
-	./$(EXEC) input_1.txt
+	./$(EXEC) input_8.txt
 
 clean:
 	rm -rf obj bin

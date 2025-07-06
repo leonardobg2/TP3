@@ -60,7 +60,7 @@ void MultiMapa<Chave,Valor>::inserir(const Chave& chave, const Valor& valor) {
     // não encontrou grupo: cria novo
     balde.push_back(GrupoChave<Chave,Valor>(chave));
     auto& novoGrupo = balde[balde.get_size() - 1];
-    size_t pos = lowerBoundValor(novoGrupo.valores, valor);
+    unsigned int pos = lowerBoundValor(novoGrupo.valores, valor);
     novoGrupo.valores.insert(pos, valor);
     ++numPares;
 }
@@ -69,7 +69,7 @@ void MultiMapa<Chave,Valor>::inserir(const Chave& chave, const Valor& valor) {
 template <typename Chave, typename Valor>
 Vector<Valor> MultiMapa<Chave,Valor>::obter(const Chave& chave) const {
     const auto& balde = tabela[indicePara(chave)];
-    for (size_t g = 0; g < balde.get_size(); ++g) {
+    for (unsigned int g = 0; g < balde.get_size(); ++g) {
         if (balde[g].chave == chave)
             return balde[g].valores;
     }

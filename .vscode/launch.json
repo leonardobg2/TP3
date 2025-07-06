@@ -5,8 +5,8 @@
             "name": "Debug TP3",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/tp3",
-            "args": ["input_1.txt"],
+            "program": "${workspaceFolder}/bin/tp3.out",
+            "args": ["input_8.txt"],
 
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

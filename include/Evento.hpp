@@ -42,6 +42,45 @@ struct Evento {
 
     }
 
+   // Converte enum → string
+    static std::string tipoParaString(TipoEvento t) {
+    switch (t) {
+        case TipoEvento::RG: return "RG";
+        case TipoEvento::AR: return "AR";
+        case TipoEvento::RM: return "RM";
+        case TipoEvento::UR: return "UR";
+        case TipoEvento::TR: return "TR";
+        case TipoEvento::EN: return "EN";
+    }
+    return "";
+    } 
+
+    // imprime um Evento no formato pedido
+static void printEvento(Evento* e) {
+    std::cout
+        << std::setw(7) << std::setfill('0') << e->tempo
+        << " EV " << Evento::tipoParaString(e->tipo)
+        << " " << std::setw(3) << std::setfill('0') << e->pacote_id;
+    if (e->tipo == TipoEvento::RG) {
+        std::cout << " " << e->remetente
+                  << " " << e->destinatario
+                  << " " << std::setw(3) << e->origem
+                  << " " << std::setw(3) << e->destino;
+    }
+    else if (e->tipo == TipoEvento::TR) {
+        std::cout << " " << std::setw(3) << e->origem
+                  << " " << std::setw(3) << e->destino;
+    }
+    else if (e->tipo == TipoEvento::EN) {
+        std::cout << " " << std::setw(3) << e->destino;
+    }
+    else {
+        std::cout << " " << std::setw(3) << e->origem
+                  << " " << std::setw(3) << e->secao;
+    }
+    std::cout << "\n";
+}
+
 };
 
  
